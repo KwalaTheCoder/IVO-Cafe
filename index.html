@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f5eee8">
-<meta name="description" content="منوی دیجیتال کافه ایوو؛ قهوه، نوشیدنی‌های گرم و سرد، صبحانه و میان‌وعده‌ها.">
+<meta name="theme-color" content="#183d39">
+<meta name="description" content="منوی رسمی کافه ایوو؛ قهوه تخصصی، نوشیدنی‌های گرم و سرد، صبحانه و خوراکی‌های تازه.">
 <title>منوی کافه ایوو | IVO Café</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,7 @@ footer{margin-top:55px;padding:35px 0 26px;background:#e9e2d8;text-align:center;
 </style>
 </head>
 <body>
-<div class="topbar">یک مکث خوش‌طعم در کافه ایوو</div>
+<div class="topbar">A LITTLE PAUSE · A BETTER MOMENT</div>
 <header class="shell">
   <div class="brand-mark" aria-hidden="true">☕</div>
   <div class="brand-fa">کافه ایوو</div><div class="brand-en">IVO</div>
@@ -46,8 +46,8 @@ footer{margin-top:55px;padding:35px 0 26px;background:#e9e2d8;text-align:center;
 </header>
 <main class="shell">
 <section class="hero">
- <div class="hero-copy"><div class="eyebrow">WELCOME TO IVO</div><h1>لحظه‌ات را<br>با یک طعم خوب بساز.</h1><p>از عطر قهوه تازه تا نوشیدنی‌های دوست‌داشتنی و خوراکی‌های ایوو؛ انتخابت را پیدا کن.</p></div>
- <div class="hero-art" aria-label="تصویر گرافیکی فنجان قهوه"><span class="leaf one">❧</span><span class="leaf two">❧</span><span class="steam">〰</span><div class="cup"><div class="cup-logo">IVO</div></div></div>
+ <div class="hero-copy"><div class="eyebrow">THE ART OF SLOW MOMENTS</div><h1>هر لحظه،<br>طعمِ ایوو.</h1><p>به دنیای طعم‌ها خوش آمدی؛ از اولین جرعه قهوه تا آخرین لقمه عصرانه، انتخابی برای حال خوبت.</p></div>
+ <div class="hero-art" aria-label="تصویر گرافیکی فنجان قهوه"><span class="leaf one">❧</span><span class="leaf two">❧</span></div>
 </section>
 <div class="search-wrap"><span class="search-icon">⌕</span><input id="search" type="search" placeholder="چی میل داری؟ جست‌وجو در منو..." aria-label="جست‌وجو در منو"><button class="clear-search" id="clear" aria-label="پاک کردن جست‌وجو">×</button></div>
 <div class="nav-shell"><nav class="categories shell" id="categories" aria-label="دسته‌بندی منو"></nav></div>
@@ -68,11 +68,11 @@ const menuData=[
  {id:"cold",name:"نوشیدنی‌های سرد",icon:"🧊",items:[["آیس آمریکانو","۱۹۵"],["آیس لته","۲۸۵"],["آیس موکا","۳۳۰"],["آفوگاتو","۳۳۵"],["موهیتو","۲۷۵"],["لیموناد","۲۴۵"],["والت استریت","۳۱۵"],["بلو پارادایس","۳۱۵"],["مخصوص ایوو","۳۲۰"]]},
  {id:"natural",name:"نوشیدنی‌های طبیعی",icon:"🍊",items:[["شیرموز","۲۱۵"],["شیرموز خرما","۲۳۵"],["آب پرتقال","۲۲۰"],["میوه‌های پاییزی","۲۶۰"],["شات زنجبیل","۱۲۵"]]}
 ];
-const packs=[["اسپرسو سینگل + کوکی یا ترافل خرمایی","۲۱۰"],["۲ عدد اسپرسو سینگل + ۲ عدد کوکی","۴۴۰"],["۲ عدد لته + ۲ اسلایس کیک","۸۳۰"],["۲ عدد لته + ۲ عدد کوکی","۶۸۰"],["چای + ۱ اسلایس کیک","۳۴۰"]];
+const packs=[["اسپرسو سینگل + کوکی / ترافل خرمایی","۲۱۰"],["۲ عدد اسپرسو سینگل + ۲ عدد کوکی","۴۴۰"],["۲ عدد لته + ۲ اسلایس کیک","۸۳۰"],["۲ عدد لته + ۲ عدد کوکی","۶۸۰"],["چای + ۱ اسلایس کیک","۳۴۰"]];
 const nav=document.getElementById("categories"),menu=document.getElementById("menu"),search=document.getElementById("search"),empty=document.getElementById("empty");
 function renderNav(){nav.innerHTML=menuData.map((c,i)=>'<button class="chip '+(!i?'active':'')+'" data-target="'+c.id+'">'+c.name+'</button>').join('')}
 function render(){const q=search.value.trim().toLocaleLowerCase("fa");let visible=0;menu.innerHTML=menuData.map(c=>{const items=c.items.filter(x=>x[0].toLocaleLowerCase("fa").includes(q));if(!items.length)return "";visible+=items.length;return '<section class="section" id="'+c.id+'"><div class="section-head"><div class="section-title"><span class="section-icon">'+c.icon+'</span><div><h2>'+c.name+'</h2></div></div><span class="section-sub">'+items.length+' انتخاب</span></div><div class="items">'+items.map(x=>'<article class="item"><span class="item-name">'+x[0]+'</span><span class="price '+(x[1].includes("استعلام")?'note':'')+'">'+x[1]+'</span></article>').join("")+'</div></section>'}).join("");
-const showPacks=!q;if(showPacks){const f=document.createElement("section");f.className="feature";f.innerHTML='<div class="eyebrow">LIMITED SEASONAL SELECTION</div><h2>پک‌های ویژه پاییز ایوو 🍂</h2><div class="packs">'+packs.map(p=>'<div class="pack"><span>'+p[0]+'</span><strong>'+p[1]+'</strong></div>').join("")+'</div>';menu.appendChild(f)}
+const showPacks=!q;if(showPacks){const f=document.createElement("section");f.className="feature";f.innerHTML='<div class="eyebrow">IVO SEASONAL COLLECTION</div><h2>پک‌های ویژه پاییز ایوو 🍂</h2><div class="packs">'+packs.map(p=>'<div class="pack"><span>'+p[0]+'</span><strong>'+p[1]+'</strong></div>').join("")+'</div>';menu.appendChild(f)}
 empty.classList.toggle("show",visible===0);document.querySelectorAll(".chip").forEach(b=>b.classList.remove("active"))}
 renderNav();render();search.addEventListener("input",render);document.getElementById("clear").addEventListener("click",()=>{search.value="";render();search.focus()});nav.addEventListener("click",e=>{const b=e.target.closest("button[data-target]");if(!b)return;search.value="";render();document.getElementById(b.dataset.target)?.scrollIntoView({behavior:"smooth"});document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x===b))});
 const topBtn=document.getElementById("toTop");window.addEventListener("scroll",()=>topBtn.classList.toggle("visible",window.scrollY>500),{passive:true});topBtn.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
