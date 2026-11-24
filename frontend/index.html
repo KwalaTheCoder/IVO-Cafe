@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IVO CAFÉ | منوی دیجیتال کافه ایوو</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#top" class="brand">
+        <span class="brand-name">IVO CAFÉ</span>
+        <span class="brand-sub">کافه ایوو · فضای سفالی</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="ناوبری اصلی">
+        <a href="#menu" class="nav-link">منو</a>
+        <a href="#about" class="nav-link">درباره ایوو</a>
+        <a href="#footer" class="nav-link">ارتباط</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="editToggle" class="btn-outline" type="button" aria-pressed="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 20h9" />
+            <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+          </svg>
+          <span>ویرایش</span>
+        </button>
+        <button id="burgerBtn" class="burger" type="button" aria-label="منوی موبایل" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav id="mobileNav" class="nav-mobile" aria-label="ناوبری موبایل">
+      <a href="#menu">منو</a>
+      <a href="#about">درباره ایوو</a>
+      <a href="#footer">ارتباط</a>
+    </nav>
+  </header>
+
+  <div id="editBar" class="edit-bar" hidden>
+    <div class="container edit-bar-inner">
+      <span>حالت ویرایش فعال است: روی متن‌ها کلیک کنید. اگر بک‌اند روشن باشد روی سرور هم ذخیره می‌شود.</span>
+      <div class="edit-bar-btns">
+        <button id="saveBackendBtn" class="btn-solid" type="button">ذخیره در بک‌اند</button>
+        <button id="resetBtn" class="btn-outline" type="button">بازگشت پیش‌فرض</button>
+      </div>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge">IVO CAFÉ · CLAY &amp; CERAMIC</span>
+          <h1 class="hero-title">گرمای سفال و طعم اصیل در <span class="accent-jade">IVO CAFÉ</span></h1>
+          <p class="hero-desc">
+            منوی دیجیتال کافه ایوو با ترکیب رنگ قهوه‌ای گرم، آبی ملایم، صورتی کمرنگ و سبز یشمی برای تجربه سریع و شفاف مهمانان.
+          </p>
+          <div class="hero-actions">
+            <a href="#menu" class="btn-solid">مشاهده منو</a>
+          </div>
+        </div>
+
+        <div class="showcase-card">
+          <img id="heroImg" src="assets/product-1.svg" alt="نمای منوی کافه ایوو" />
+          <button type="button" class="zoom-btn" data-src="assets/product-1.svg" data-caption="IVO CAFÉ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /><path d="M11 8v6M8 11h6" />
+            </svg>
+            <span>بزرگ‌نمایی</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="badge">DIGITAL MENU</span>
+          <h2>منوی کامل IVO CAFÉ</h2>
+          <p>دسته‌ها و آیتم‌های منوی کافه ایوو را جستجو یا فیلتر کنید.</p>
+        </div>
+
+        <div class="toolbar">
+          <div class="search-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+            </svg>
+            <input id="searchInput" type="search" placeholder="جستجوی آیتم یا قیمت..." aria-label="جستجو در منو" />
+          </div>
+          <div id="categoryTabs" class="tabs" role="tablist" aria-label="دسته‌بندی منو"></div>
+        </div>
+
+        <div id="menuContainer" class="menu-groups"></div>
+      </div>
+    </section>
+
+    <section id="about" class="section section-alt">
+      <div class="container">
+        <div class="about-card">
+          <span class="badge">ABOUT IVO</span>
+          <h2>درباره IVO CAFÉ</h2>
+          <p id="aboutText" class="editable" data-key="about"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand-name">IVO CAFÉ</div>
+        <p class="footer-note">تجربه کافه با بافت سفالی و رنگ‌های آرامش‌بخش.</p>
+      </div>
+      <div>
+        <h3>آدرس</h3>
+        <p id="footerAddress" class="editable" data-key="address"></p>
+      </div>
+      <div>
+        <h3>تماس</h3>
+        <p id="footerPhone" class="editable" data-key="phone"></p>
+      </div>
+      <div>
+        <h3>اینستاگرام</h3>
+        <a id="footerInsta" href="#" class="editable" data-key="instagram"></a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> IVO CAFÉ</span>
+      <span id="apiStatus" class="api-pill">حالت آفلاین / محلی</span>
+    </div>
+  </footer>
+
+  <div id="lightbox" class="lightbox" hidden>
+    <div class="lightbox-box">
+      <button id="lightboxClose" class="lightbox-close" type="button" aria-label="بستن">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+      <img id="lightboxImg" src="" alt="" />
+      <p id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <button id="toTop" class="to-top" type="button" aria-label="بازگشت به بالا">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="m18 15-6-6-6 6" />
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

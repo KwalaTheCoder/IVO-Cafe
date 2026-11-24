@@ -1,0 +1,9 @@
+{
+  "name": "ivo-cafe-fullstack",
+  "version": "1.0.0",
+  "description": "IVO Café digital menu with frontend and Node.js backend API",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  }
+}
